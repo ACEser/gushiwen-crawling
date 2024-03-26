@@ -7,7 +7,12 @@ def get_poetry_phrases(keyword):
         'page': 1,  # 初始化为第一页
         'tstr': keyword
     }
-
+    
+    params2 = {
+        'page': 1,  # 初始化为第一页
+        'astr': keyword,  # 使用新的参数'astr'来传递关键词
+        'tstr': ''  # 根据新的URL格式，保持'tstr'为空
+    }  
     while True:
         response = requests.get(base_url, params=params)
         soup = BeautifulSoup(response.text, 'html.parser')
